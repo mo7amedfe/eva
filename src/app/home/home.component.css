@@ -1,0 +1,13 @@
+.img-container{
+    height: 100vh;
+}
+.winnerListBtn{
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+.wheelBtn{
+    top: 80px;
+    left: 10px;
+    z-index: 1000;
+}
