@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <div *ngIf="!isWin && isWin==undefined" class="container">
+        <h1 class="w-100 text-center text-red">MINOXIGROW</h1>
+        <div class="row">
+            <div class="col-md-8 d-flex flex-wrap align-items-center justify-content-center">
+                <div class="w-100">
+                    <div class="question bg-red-dark p-4 w-100 rounded-5">
+                        <h4>
+                            {{questions[i].question}}
+                        </h4>
+
+                    </div>
+                    <div class="choices-container container d-flex flex-wrap">
+                        <div *ngFor="let option of questions[i].options"
+                            class="choice shadow-lg rounded-5 bg-white m-2 p-3 my-2 d-flex">
+                            <div (click)="chooseOption(option)" [ngClass]="{'clicked':option.ispressed}"
+                                class="bg-red-dark plusdiv mx-2 cursor-pointer">
+                                <p>+</p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <h3 class="text-dark">{{option.name}}</h3>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="w-100 d-flex justify-content-end">
+                        <div [ngClass]="{'clicked':numOfClicks==0}" (click)="nextQuestion()"
+                            class="rounded-5 p-4 d-flex align-items-center justify-content-center bg-red-dark cursor-pointer">
+                            <p class="text-white next-text m-0">Next</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-end">
+                <!-- <div class=" img-container">
+                </div> -->
+                <img class="bg-img" src="assets/images/2.png" alt="">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="isWin && isWin!=undefined" class="container d-flex flex-wrap">
+        <h1>Congratulations! You Win.</h1>
+
+        <div class="col-md-8 d-flex flex-wrap align-items-center justify-content-center">
+            <div class="w-100 d-flex justify-content-center flex-wrap align-items-center">
+                <input [(ngModel)]="userName" class="form-control" type="text"
+                    placeholder="Type your name to enter the wheel of fortune">
+                <input [(ngModel)]="phone" class="form-control my-4" type="tel" placeholder="Type your PhoneNumber">
+
+                <button [ngClass]="{'clicked':isSubmitted}" (click)="submitName(true)" class="btn btn-dark">Submit</button>
+            </div>
+            <a href="#home">
+                <div class="w-100">
+                    <button (click)="resetQuiz()" class="btn btn-danger w-100">Go Home</button>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="col-md-4 d-flex align-items-center justify-content-end">
+            <!-- <div class=" img-container">
+            </div> -->
+            <img class="bg-img" src="assets/images/2.png" alt="">
+
+        </div>
+    </div>
+    <div *ngIf="!isWin && isWin!=undefined" class="container d-flex flex-wrap">
+        <h1>Game Over! Bad Luck.</h1>
+        <div class="col-md-8 d-flex flex-wrap align-items-center justify-content-center">
+
+            <input [(ngModel)]="userName" class="form-control" type="text"
+                placeholder="Type your name to enter the wheel of fortune">
+            <input [(ngModel)]="phone" class="form-control my-4" type="tel" placeholder="Type your PhoneNumber">
+
+            <button [ngClass]="{'clicked':isSubmitted}" (click)="submitName(false)" class="btn btn-dark">Submit</button>
+
+
+            <a class="w-100" href="#home">
+                <div class="w-100">
+                    <button (click)="resetQuiz()" class="btn btn-danger w-100">Go Home</button>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="col-md-4 d-flex align-items-center justify-content-end">
+            <!-- <div class=" img-container">
+            </div> -->
+            <img class="bg-img" src="assets/images/2.png" alt="">
+
+        </div>
+    </div>
+
+</div>

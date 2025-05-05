@@ -1,0 +1,65 @@
+<div class="container mt-3">
+
+    <div class="row d-flex justify-content-center">
+        <h2>Winners</h2>
+        <div class="table-responsive w-50">
+            <table class="table table-danger">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">ID</th>
+                        <th class="text-center" scope="col">name</th>
+                        <th class="text-center" scope="col">Phone</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let winner of winners let i = index" class="">
+                        <td class="text-center" scope="row">{{i}}</td>
+                        <td class="text-center">{{winner.name}}</td>
+                        <td class="text-center">{{winner.phone}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+   
+        <div class="w-100 my-5">
+            <button class="btn btn-danger w-100" (click)="copyArrayWithNewLines()">copy All winners names</button>
+        </div>
+
+
+<h2>All Users</h2>
+        <div class="table-responsive w-50">
+            <table class="table table-danger">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">ID</th>
+                        <th class="text-center" scope="col">name</th>
+                        <th class="text-center" scope="col">Phone</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of allUsers let i = index" class="">
+                        <td class="text-center" scope="row">{{i}}</td>
+                        <td class="text-center">{{user.name}}</td>
+                        <td class="text-center">{{user.phone}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="w-100 my-5">
+            <button class="btn btn-danger w-100" (click)="copyArrayWithNewLinesForAllUsers()">copy All Users</button>
+        </div>
+
+        <a class="w-100" [routerLink]="['/']">
+            <button class="btn btn-danger w-100">Go Back</button>
+
+        </a>
+    </div>
+
+
+</div>
